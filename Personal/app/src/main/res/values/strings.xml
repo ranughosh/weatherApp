@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WeatherApplication</string>
+    <string name="location_text">Enter location here in City,Country format e.g dallas,us
+    or 5 digit zip code</string>
+    <string name="error_text">Sorry we did not get the weather for the location you requested , please search for a different location</string>
+    <string name="temp_max">Temp Max: %1$s ℉</string>
+    <string name="temp_min">Temp Min: %1$s ℉</string>
+    <string name="temp_avg">Temp Avg: %1$s ℉</string>
+    <string name="humidity">Humidity: %1$s %%</string>
+    <string name="pressure">Pressure: %1$s hpa</string>
+    <string name="wind">Wind: %1$s m/s</string>
+</resources>

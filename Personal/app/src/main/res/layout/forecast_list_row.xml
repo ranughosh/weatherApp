@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weather_detail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/location"
+    android:padding="@dimen/horz_padding">
+
+    <ImageView
+        android:id="@+id/quick_image"
+        android:layout_width="@dimen/image_dimension"
+        android:layout_height="@dimen/image_dimension"
+        />
+
+
+
+    <TextView
+        android:id="@+id/weather_description"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_dimension"
+        android:layout_toRightOf="@+id/quick_image"
+        android:gravity="center_vertical"/>
+</RelativeLayout>
+

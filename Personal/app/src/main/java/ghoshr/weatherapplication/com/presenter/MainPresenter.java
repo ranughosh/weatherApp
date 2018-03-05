@@ -91,14 +91,14 @@ public class MainPresenter {
             if (weatherResponse != null) {
                 if (weatherResponse.getErrorMessage() != null) {
 
+
+                    }
                     mMainView.setError(weatherResponse.getErrorMessage());
 
                 } else {
                     if(weatherResponse.getMain()!=null && weatherResponse.getMain().getTemp()!=null) {
                         Log.d(TAG, "weatherResponse:" + weatherResponse.getMain().getTemp());
                         setMainWeather(weatherResponse.getMain());
-
-                    }
                     if(weatherResponse.getWind()!=null && !TextUtils.isEmpty(weatherResponse.getWind().getSpeed()))
                         mMainView.setWind(weatherResponse.getWind().getSpeed());
                     if (weatherResponse.getWeather() != null && weatherResponse.getWeather().size() > 0) {

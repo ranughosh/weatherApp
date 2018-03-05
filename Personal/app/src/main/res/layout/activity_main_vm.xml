@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="wvm"
+            type="ghoshr.weatherapplication.com.viewModel.WeatherViewModel"/>
+    </data>
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ghoshr.weatherapplication.com.ui.MainActivity"
+    android:padding="@dimen/horz_padding">
+
+    <EditText android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/location_text"
+        android:background="@drawable/edit_border"
+        android:layout_marginBottom="@dimen/horz_padding"/>
+
+    <Button android:id="@+id/submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="Submit"
+        android:layout_below="@+id/location"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="@dimen/image_dimension"
+        android:layout_marginRight="@dimen/image_dimension"
+        android:layout_marginBottom="@dimen/horz_padding"
+        android:onClick="@{wvm.onSubmitClicked}"/>
+
+    <ProgressBar android:id="@+id/progress_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@+id/submit_btn"/>
+
+    <TextView android:id="@+id/error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit_btn"
+        android:visibility="gone"/>
+
+    <RelativeLayout android:id="@+id/weather_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit_btn">
+
+
+        <LinearLayout android:id="@+id/temp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView android:id="@+id/temp_avg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="@{wvm.tempAvg != null ? View.VISIBLE :View.GONE}"
+                android:text="@{@string/temp_avg(wvm.tempAvg)}"/>
+            <TextView android:id="@+id/temp_high"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="@{wvm.tempMax != null ? View.VISIBLE :View.GONE}"
+                android:text="@{@string/temp_max(wvm.tempMax)}"/>
+            <TextView android:id="@+id/temp_low"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="@{wvm.tempMin != null ? View.VISIBLE :View.GONE}"
+                android:text="@{@string/temp_min(wvm.tempMin)}"/>
+            <TextView android:id="@+id/pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="@{wvm.pressure != null ? View.VISIBLE :View.GONE}"
+                android:text="@{@string/pressure(wvm.pressure)}"/>
+            <TextView android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="@{wvm.humidity !=null ? View.VISIBLE :View.GONE}"
+                android:text="@{@string/humidity(wvm.humidity)}"/>
+            <TextView android:id="@+id/wind"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="@{wvm.windSpeed !=null ?View.VISIBLE : View.GONE}"
+                android:text="@{@string/wind(wvm.windSpeed)}"/>
+        </LinearLayout>
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_forecast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:layout_below="@+id/temp_layout"
+            android:paddingTop="@dimen/horz_padding"/>
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

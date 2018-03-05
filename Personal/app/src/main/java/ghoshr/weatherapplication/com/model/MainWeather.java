@@ -52,6 +52,7 @@ public class MainWeather {
 
     public void setTempMin(String tempMin) {
         this.mTempMin = tempMin;
+
     }
 
     public String getTempMax() {
